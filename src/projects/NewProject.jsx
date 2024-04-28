@@ -14,10 +14,9 @@ const NewProject = () => {
         <div className="flex">
             <Sidebar />
 
-
             <div className="flex flex-col justify-center items-center p-3 w-full h-full overflow-y-scroll md:h-screen">
                 <h1 className="text-3xl text-white font-bold mb-6">Nuevo proyecto</h1>
-                <form className="bg-blue-ligth rounded-md w-8/12 p-6">
+                <form className="bg-blue-ligth rounded-md w-7/12 p-6">
                     <div className="flex flex-col mb-4">
                         <label className="text-white font-semibold mb-2">Nombre del proyecto</label>
                         <input
@@ -78,11 +77,11 @@ const NewProject = () => {
                             Crear Proyecto
                         </button>
 
-                        <button
-                            className="bg-blue rounded-md p-2 ml-7">
+                        <a 
+                        className="bg-blue rounded-md p-2 ml-7"
+                        href="/home">
                             Cancelar
-                        </button>
-
+                        </a>
                     </div>
                 </form>
             </div>

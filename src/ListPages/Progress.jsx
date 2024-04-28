@@ -56,7 +56,7 @@ const Progress = () => {
   return (
     <div className="flex">
       <Sidebar />
-      <h1 className="font-bold text-white text-3xl">Avances de Proyecto</h1>
+      <h1 className="text-white text-3xl text-justify mt-14 ml-14 font-bold uppercase">Avances de Proyecto</h1>
       <div className="bg-blue py-10 h-screen flex justify-center items-center">
         <div className="w-full max-w-full">
           <ThemeProvider theme={getMuiTheme()}>
