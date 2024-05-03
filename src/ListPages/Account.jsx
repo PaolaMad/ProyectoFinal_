@@ -3,14 +3,23 @@ import { FiEyeOff } from "react-icons/fi";
 import { LuEye } from "react-icons/lu";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { constants } from "../helpers/constants";
 
 const Account = () => {
   const [showPassword, setShowPassword] = useState(false);
+
+  const [changeAccount, setChangeAccount] = useState({
+    email: '',
+    name: '',
+    lastName: '',
+    password: ''
+  });
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
+  const { API_URL } = constants();
   const navigate = useNavigate();
 
   return (

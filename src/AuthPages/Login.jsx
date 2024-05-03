@@ -10,10 +10,12 @@ const Login = () => {
   //Estado para mostrar contraseña
   const [showPassword, setShowPassword] = useState(false);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [loginForm, setLoginForm] = useState({
+    email: '',
+    password: ''
+  });
 
-  const { login } = useContext(AuthContext);
+  const {API_URL} = constants();
 
   const handleShowPassword = () => {
 
@@ -26,7 +28,7 @@ const Login = () => {
     navigate("/home");
 
     try {
-      const response =  fetch(`${API_URL}/auth/login`, {
+      const response = fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,8 +41,7 @@ const Login = () => {
       }
 
       const result =  response.json();
-      login(result.data);
-
+      
     } catch (error) {
       console.log(error);
     }
@@ -66,8 +67,8 @@ const Login = () => {
                     type="email"
                     className="w-full border border-gray-600 outline-none px-8 py-2 rounded-lg"
                     placeholder=" Correo Electrónico"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={loginForm.email}
+                    onChange={(e) => setLoginForm({...loginForm, email: e.target.value})}
                   />
                 </div>
 
@@ -77,8 +78,8 @@ const Login = () => {
                     type={showPassword ? "text" : "password"}
                     className="w-full border border-gray-600 outline-none px-8 py-2 rounded-lg"
                     placeholder="Contraseña"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={loginForm.password}
+                    onChange={(e) => setLoginForm({...loginForm, password: e.target.value})}
                   />
                   {showPassword ? (
                     <LuEye
