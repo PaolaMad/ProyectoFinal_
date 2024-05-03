@@ -14,7 +14,7 @@ const NewProject = () => {
 
 
 
-  
+
 
   return (
     <div className="flex">
@@ -32,26 +32,17 @@ const NewProject = () => {
             />
           </div>
 
-          <div className="flex flex-row justify-between mb-4">
-            <div className="flex flex-col w-1/2 mr-2">
-              <label className="text-white font-semibold mb-2">
-                Fecha de inicio
-              </label>
-              <input
-                className="border-2 w-full p-2 placeholder-gray-600 rounded-md"
-                type="date"
-              />
-            </div>
-            <div className="flex flex-col w-1/2 ml-2">
-              <label className="text-white font-semibold mb-2">
-                Fecha de finalización
-              </label>
-              <input
-                className="border-2 w-full p-2 placeholder-gray-600 rounded-md"
-                type="date"
-              />
-            </div>
+
+          <div className="flex flex-col mb-4">
+            <label className="text-white font-semibold mb-2">
+              Fecha de finalización
+            </label>
+            <input
+              className="border-2 w-full p-2 placeholder-gray-600 rounded-md"
+              type="date"
+            />
           </div>
+
 
           <div className="flex flex-col mb-4">
             <label className="text-white font-semibold mb-2">Grupos</label>
