@@ -11,6 +11,11 @@ const NewProject = () => {
   const [collaborators, setCollaborators] = useState("");
   const [description, setDescription] = useState("");
   const navigate = useNavigate();
+
+
+
+  
+
   return (
     <div className="flex">
       <div className="flex flex-col justify-center items-center p-3 w-full h-full   md:h-screen">
