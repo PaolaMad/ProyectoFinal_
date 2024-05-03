@@ -1,29 +1,22 @@
-import { useState } from "react"
-import Sidebar from "../components/Sidebar"
-import { DragDropContext } from "react-beautiful-dnd"
-import Column from "../projects/Column";
+ import { useState } from "react";
+import { DragDropContext } from "react-beautiful-dnd";
+import { Title } from "../components/Title";
 
 const Tasks = () => {
-   const [todo, setTodo] = useState([]);
-   const [doing, setdoing] = useState([]);
-   const [done, setdone] = useState([]);
+  const [todo, setTodo] = useState([]);
+  const [doing, setdoing] = useState([]);
+  const [done, setdone] = useState([]);
   return (
-    <div className="flex text-white">
-      <Sidebar />
-      <div>
+    <div>
+      <DragDropContext>
+        <Title>Tareas</Title>
 
-        <DragDropContext>
-          <h2 className="font-bold">Tareas</h2>
-
-          <div className="flex justify-between items-center flex-row">
-            <Column title={"TO DO"} task={incomplete} id={"1"} />
-          </div>
-
-        </DragDropContext>
-
-      </div>
+        <div className="flex justify-between items-center flex-row">
+          {/* <Column title={"TO DO"} task={incomplete} id={"1"} /> */}
+        </div>
+      </DragDropContext>
     </div>
-  )
-}
+  );
+};
 
-export default Tasks
+export default Tasks;
