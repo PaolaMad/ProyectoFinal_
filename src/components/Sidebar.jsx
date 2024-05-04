@@ -8,6 +8,20 @@ import { VscAccount } from "react-icons/vsc";
 import { useNavigate } from "react-router-dom";
 import { LiaHistorySolid } from "react-icons/lia";
 
+const NavItem = ({ icon, title, onClick, open }) => (
+  <li
+    className="text-white text-sm flex items-center gap-x-4 cursor-pointer 
+      p-2 hover:bg-gray-blue rounded-md mt-2"
+    onClick={onClick}
+  >
+    <span className="block float-left text-2xl">{icon}</span>
+    <span className={`block duration-100 ${open ? "visible" : "scale-0"}`}>
+      <span className="text-lg">{title}</span>
+    </span>
+  </li>
+);
+
+
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
@@ -49,14 +63,14 @@ const Sidebar = () => {
             icon={<LiaTasksSolid />}
             onClick={() => navigate("/tareas")}
             open={open}
-            title={"tareas"}
+            title={"Tareas"}
           />
 
           <NavItem
             icon={<SlChart />}
             onClick={() => navigate("/progresos")}
             open={open}
-            title={"progresos"}
+            title={"Progresos"}
           />
 
           <NavItem
@@ -96,15 +110,3 @@ const Sidebar = () => {
 
 export default Sidebar;
 
-const NavItem = ({ icon, title, onClick, open }) => (
-  <li
-    className="text-white text-sm flex items-center gap-x-4 cursor-pointer 
-      p-2 hover:bg-gray-blue rounded-md mt-2"
-    onClick={onClick}
-  >
-    <span className="block float-left text-2xl">{icon}</span>
-    <span className={`block duration-100 ${open ? "visible" : "scale-0"}`}>
-      <span className="text-lg">{title}</span>
-    </span>
-  </li>
-);

@@ -17,10 +17,11 @@ const Login = () => {
 
   const {API_URL} = constants();
 
-  const handleShowPassword = () => {
-
+  const handleShowPassword = async (e) => {
+ 
     setShowPassword(!showPassword);
   };
+  
   const navigate = useNavigate();
 
   const handleSubmit = () => {

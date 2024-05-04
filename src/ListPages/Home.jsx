@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Title } from "../components/Title";
 import Card from "../projects/Card";
 
-const Home = () => {
+const Home = ( {Projects} ) => {
   const navigate = useNavigate();
 
   const handleNewProject = () => {
@@ -23,12 +23,15 @@ const Home = () => {
       </button>
 
       {/* Tarjetas de proyectos creados: iterar los titulos de los proyectos creados */}
-      <div className="flex flex-wrap gap-4 p-8 ">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
+
+      
+      {/* <ul className="flex flex-wrap gap-4 p-8 ">
+        {Projects.map((project, index) => (
+          <Card key={index} title={project} />
+        ))}
+      </ul>  */}
+
+
     </div>
   );
 };

@@ -12,6 +12,9 @@ import MyCalendar from "../ListPages/MyCalendar";
 import { Navigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import Record from "../ListPages/Record";
+import Project from "../projects/Project";
+
+
 
 const AppRouter = () => {
   return (
@@ -37,6 +40,7 @@ const AppRouter = () => {
         <Route path="/cuenta" element={<Account />} />
         <Route path="/crearProyecto" element={<NewProject />} />
         <Route path="/historial" element={<Record />} />
+        <Route path="proyecto" element={<Project/>}/>
       </Route>
     </Routes>
   );
