@@ -11,22 +11,21 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const [loginForm, setLoginForm] = useState({
-    email: '',
+    userName: '',
     password: ''
   });
 
-  const {API_URL} = constants();
+  const { API_URL } = constants();
 
   const handleShowPassword = async (e) => {
- 
+
     setShowPassword(!showPassword);
   };
-  
+
   const navigate = useNavigate();
 
   const handleSubmit = () => {
     e.preventDefault();
-    navigate("/home");
 
     try {
       const response = fetch(`${API_URL}/auth/login`, {
@@ -41,8 +40,9 @@ const Login = () => {
         throw new Error('Error en el inicio de sesión');
       }
 
-      const result =  response.json();
-      
+      const result = response.json();
+      navigate("/home");
+
     } catch (error) {
       console.log(error);
     }
@@ -65,11 +65,11 @@ const Login = () => {
                 <div className="relative">
                   <MdOutlineEmail className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-500" />
                   <input
-                    type="email"
+                    type="text"
                     className="w-full border border-gray-600 outline-none px-8 py-2 rounded-lg"
-                    placeholder=" Correo Electrónico"
-                    value={loginForm.email}
-                    onChange={(e) => setLoginForm({...loginForm, email: e.target.value})}
+                    placeholder="Username"
+                    value={loginForm.userName}
+                    onChange={(e) => setLoginForm({ ...loginForm, userName: e.target.value })}
                   />
                 </div>
 
@@ -80,7 +80,7 @@ const Login = () => {
                     className="w-full border border-gray-600 outline-none px-8 py-2 rounded-lg"
                     placeholder="Contraseña"
                     value={loginForm.password}
-                    onChange={(e) => setLoginForm({...loginForm, password: e.target.value})}
+                    onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
                   />
                   {showPassword ? (
                     <LuEye
@@ -107,12 +107,14 @@ const Login = () => {
                   </a>
                 </div>
 
-                <input
+                <button
                   type="submit"
                   className="bg-blue text-white rounded-xl w-full uppercase mt-4 p-2 
-                  hover:bg-blue-trans cursor-pointer"
-                  value={"Iniciar Sesión"}
-                />
+                hover:bg-blue-trans cursor-pointer"
+                >
+                  Inicias Sesion
+                </button>
+
               </form>
             </div>
           </div>

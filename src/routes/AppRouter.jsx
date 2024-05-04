@@ -13,15 +13,26 @@ import { Navigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import Record from "../ListPages/Record";
 import Project from "../projects/Project";
+import { PublicRoute } from "./PublicRoute";
+import { PrivateRoute } from "./PrivateRoute";
 
 
 
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/registro" element={<Register />} />
-      <Route path="/" element={<Navigate to={"home"} />} />
+
+      <Route path="/" element={
+        <PublicRoute>
+          <Login />
+        </PublicRoute>
+      } />
+      <Route path="/registro" element={
+        <PublicRoute>
+          <Register />
+        </PublicRoute>
+      } />
+
 
       <Route
         element={
@@ -33,14 +44,54 @@ const AppRouter = () => {
           </div>
         }
       >
-        <Route path="/home" element={<Home />} />
-        <Route path="/tareas" element={<Tasks />} />
-        <Route path="/progresos" element={<Progress />} />
-        <Route path="/calendario" element={<MyCalendar />} />
-        <Route path="/cuenta" element={<Account />} />
-        <Route path="/crearProyecto" element={<NewProject />} />
-        <Route path="/historial" element={<Record />} />
-        <Route path="proyecto" element={<Project/>}/>
+        <Route path="/home" element={
+          <PrivateRoute>
+            <Home />
+          </PrivateRoute>
+        } />
+
+        <Route path="/tareas" element={
+          <PrivateRoute>
+            <Tasks />
+          </PrivateRoute>
+        } />
+
+        <Route path="/progresos" element={
+        
+            <Progress />
+         
+        } />
+
+        <Route path="/calendario" element={
+          <PrivateRoute>
+            <MyCalendar />
+          </PrivateRoute>
+        } />
+
+        <Route path="/cuenta" element={
+          <PrivateRoute>
+            <Account />
+          </PrivateRoute>
+        } />
+
+        <Route path="/crearProyecto" element={
+          <PrivateRoute>
+            <NewProject />
+          </PrivateRoute>
+        } />
+
+        <Route path="/historial" element={
+      
+            <Record />
+        
+        } />
+
+        <Route path="proyecto" element={
+          <PrivateRoute>
+            <Project />
+          </PrivateRoute>
+        } />
+
       </Route>
     </Routes>
   );
